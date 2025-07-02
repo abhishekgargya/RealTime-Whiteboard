@@ -1,10 +1,11 @@
+import Forms from "./Components/Forms";
 
 function App() {
   
   return (
-    <>
-    <h1>heee</h1>
-    </>
+    <div className="container flex justify-center ml-5">
+      <Forms />
+    </div>
   );
 }
 
