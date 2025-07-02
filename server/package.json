@@ -1,12 +1,12 @@
 {
-  "name": "server",
+  "name": "realtime-whiteboard-sharing",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Abhishek",
   "license": "ISC",
   "description": "",
   "dependencies": {
