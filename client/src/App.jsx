@@ -19,15 +19,20 @@ const socket = io(server, connectionOptions);
 function App() {
 
   const [user,setUser] = useState(null);
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     socket.on("userIsJoined", (data) => {
       if(data.success){
         console.log("userJoined");
+        setUsers(data.users);
       } else {
         console.log("something went wrong");
       }
     })
+    socket.on("allUsers", data=>{
+      setUsers(data);
+    });
   },[])
   
   
@@ -44,7 +49,7 @@ function App() {
     <div className="flex justify-center ml-5">
       <Routes>
         <Route path="/" element={<Forms uuid={uuid} socket={socket} setUser={setUser} />} />
-        <Route path="/:roomId" element={<RoomPage />} ></Route>
+        <Route path="/:roomId" element={<RoomPage user={user} socket={socket} users={users} />} ></Route>
       </Routes>
 
     </div>
