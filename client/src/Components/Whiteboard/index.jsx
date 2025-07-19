@@ -37,7 +37,7 @@ const WhiteBoard = ({
   if (!user?.presenter) {
     return (
       <>
-        <div className="w-full h-full border border-black relative">
+        <div className="w-full h-full mt-2 border border-black relative">
           <img
             src={img}
             alt="Realtime white board image shared"

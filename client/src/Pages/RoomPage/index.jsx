@@ -58,7 +58,7 @@ const RoomPage = ({user, socket, users})=> {
               </svg>
             </button>
           ) : (
-            <div className="flex flex-col bg-gray-400 text-white p-4 rounded-tr-lg rounded-br-lg shadow-lg w-60">
+            <div className="flex flex-col bg-black text-white p-4 rounded-tr-lg rounded-br-lg shadow-lg w-60">
               <button
                 type="button"
                 className="bg-red-500 hover:bg-red-400 text-white px-2 py-1 rounded mb-2 self-center font-bold text-xl cursor-pointer"
@@ -84,7 +84,7 @@ const RoomPage = ({user, socket, users})=> {
 
         {user?.presenter && (
           <div className="flex justify-center">
-            <div className="shadow-[0_10px_10px_rgba(0,0,0,0.25)] inset-shadow-indigo-300 bg-white rounded-4xl w-[50%] p-1 mt-2 gap-4 flex justify-center gap-4 mb-2">
+            <div className="shadow-[0_10px_10px_rgba(0,0,0,0.25)] inset-shadow-indigo-300 bg-white rounded-4xl w-[50%] p-1 mt-2 flex justify-center gap-4 mb-2">
               <div className="flex gap-3 space-x-4 p-2">
                 <div className="flex gap-1">
                   <label htmlFor="pencil">
