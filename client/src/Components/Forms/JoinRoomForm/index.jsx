@@ -24,24 +24,20 @@ const JoinRoomForm = ({uuid, socket, setUser})=>{
   };
 
     return (
-      <form className="mt-5">
-        <div>
-          <input type="text" className="border" placeholder="Enter your name" value={name} 
+      <form className="mt-5 flex flex-col justify-between h-full">
+        <div className="flex flex-grow flex-col gap-4">
+          <input type="text" className="bg-white p-1 w-full rounded-md" placeholder="Enter your name" value={name} 
           onChange={(e)=>setName(e.target.value)} />
-        </div>
 
-        <div className="">
-          <div className="flex mt-5">
             <input
               type="text"
-              className="border"
+              className="bg-white p-1 w-full rounded-md mt-3"
               placeholder="Enter Room Code"
               value={roomId}
               onChange={(e) => setRoomId(e.target.value)}
-            />
-          </div>
+              />
         </div>
-        <button type="submit" className="border w-full mt-3 cursor-pointer" onClick={handleRoomJoin} >
+        <button type="submit" className="self-center p-2 mb-7 rounded-md text-white font-bold text-xl bg-green-500 hover:bg-green-400 mt-3 cursor-pointer" onClick={handleRoomJoin} >
           Join Room
         </button>
       </form>

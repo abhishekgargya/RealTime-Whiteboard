@@ -26,25 +26,42 @@ const CreateRoomForm = ({uuid, socket, setUser}) => {
   }
 
   return (
-    <form className="mt-5">
+    <form className="mt-7 flex flex-col justify-between h-full">
       <div>
-        <input type="text" className="border" placeholder="Enter your name" value={name} onChange={(e)=>setName(e.target.value)} />
-      </div>
-
-      <div className="">
-        <div className="flex mt-5">
-          <input disabled type="text" value={roomId} className="border" placeholder="Generate Room Code" />
-          <div className="p-2">
-            <button className="border p-2 m-2 cursor-pointer" type="button" onClick={()=>setroomId(uuid())}>
-              Generate
-            </button>
-            <button className="border p-2 m-2 cursor-pointer" type="button">
-              Copy
-            </button>
-          </div>
+        <input
+          type="text"
+          className="rounded-md bg-white p-1 w-full"
+          placeholder="Enter your name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <input
+          disabled
+          type="text"
+          value={roomId}
+          className=" bg-white p-2 mt-5 w-full rounded-md"
+          placeholder="Generate Room Code"
+        />
+        <div className="flex justify-end p-2">
+          <button
+            className="p-2 m-2 cursor-pointer text-white font-bold rounded-md bg-green-500 hover:bg-green-400"
+            type="button"
+            onClick={() => setroomId(uuid())}>
+            Generate
+          </button>
+          <button
+            className="p-2 m-2 cursor-pointer rounded-md font-bold bg-[#bebebe] hover:bg-[#F9F7F7]"
+            type="button">
+            Copy
+          </button>
         </div>
       </div>
-      <button type="submit" className="border w-full mt-3 cursor-pointer" onClick={handleCreateRoom} >Generate Room</button>
+      <button
+        type="submit"
+        className="rounded-md mb-7 self-center text-xl text-white bg-green-500 hover:bg-green-400 cursor-pointer p-2 font-bold"
+        onClick={handleCreateRoom}>
+        Generate Room
+      </button>
     </form>
   );
 };

@@ -57,8 +57,9 @@ const WhiteBoard = ({
 
     canvas.width = container.clientWidth;
     canvas.height = container.clientHeight;
-    canvas.style.width = `${container.clientWidth}px`;
-    canvas.style.height = `${container.clientHeight}px`;
+
+    canvas.style.width = "100%";
+    canvas.style.height = "100%";
 
     const ctx = canvas.getContext("2d");
 
@@ -213,8 +214,8 @@ const WhiteBoard = ({
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
-      className="w-full h-full border border-black relative">
-      <canvas ref={canvasRef} className="w-full h-full" />
+      className="w-full h-screen ">
+      <canvas ref={canvasRef} className="w-full h-screen block" />
     </div>
   );
 };
