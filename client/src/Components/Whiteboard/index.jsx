@@ -17,10 +17,22 @@ const WhiteBoard = ({
 
   const [img, setImg] = useState(null);
   useEffect(() => {
-    socket.on("whiteboardDataResponse", (data) => {
+    if (!user?.presenter) {
+      socket.emit("get-whiteboard");
+    }
+
+    const handleWhiteboardData = (data) => {
       setImg(data.imgURL);
-    });
+    };
+
+    socket.on("whiteboardDataResponse", handleWhiteboardData);
+
+    return () => {
+      socket.off("whiteboardDataResponse", handleWhiteboardData);
+    };
   }, []);
+
+
 
   if (!user?.presenter) {
     return (

@@ -34,33 +34,30 @@ const RoomPage = ({user, socket, users})=> {
     }
 
     return (
-      <div className="relative">
-        <div className="flex flex-col">
-          <button
-            type="button"
-            className="cursor-pointer p-2 border bg-black text-white"
-            style={{
-              display: "block",
-              position: "absolute",
-              top: "2%",
-              left: "2%",
-            }}
-            onClick={() => {
-              setUserTab(!openedUserTab);
-            }}>
-            Users{" "}
-          </button>
-          {openedUserTab && (
-            <div
-              className="absolute mt-2 flex flex-col text-white bg-black p-3 rounded shadow-lg z-50"
-              style={{ width: "200px" }}>
-              {users.map((usr, index) => (
-                <p key={index * 999} className="py-1 border-b border-gray-600">
-                  {usr.name} {user && user.userId === usr.userId && "(You)"}
-                </p>
-              ))}
-            </div>
-          )}
+      <div className="">
+        <div className="fixed top-1 left-0">
+            {!openedUserTab ? (
+              <button
+                type="button"
+                className="cursor-pointer px-4 py-2 bg-black text-white rounded"
+                onClick={() => setUserTab(true)}>
+                Users
+              </button>
+            ) : (
+              <div className="bg-black text-white p-4 rounded shadow-lg w-60">
+                <button
+                  type="button"
+                  className="bg-white text-black px-2 py-1 rounded mb-2"
+                  onClick={() => setUserTab(false)}>
+                  Close
+                </button>
+                {users.map((usr, index) => (
+                  <p key={index} className="py-1 border-b border-gray-600">
+                    {usr.name} {user && user.userId === usr.userId && "(You)"}
+                  </p>
+                ))}
+              </div>
+            )}
         </div>
         <h1 className="py-3 w-full text-center font-bold text-3xl text-blue-400">
           White Board RealTime
